@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<HBox alignment="center" stylesheets="style.css" xmlns="http://javafx.com/javafx/8.0.172-ea"
+      xmlns:fx="http://javafx.com/fxml/1" fx:controller="ru.geekbrains.Controller">
+    <VBox>
+        <VBox fx:id="authPanel" maxWidth="200">
+            <TextField fx:id="login" promptText="login">
+                <opaqueInsets>
+                    <Insets/>
+                </opaqueInsets>
+                <VBox.margin>
+                    <Insets bottom="5.0" top="5.0"/>
+                </VBox.margin>
+            </TextField>
+            <PasswordField fx:id="password" onAction="#sendAuth" promptText="password">
+                <VBox.margin>
+                    <Insets bottom="5.0"/>
+                </VBox.margin>
+            </PasswordField>
+            <Button maxWidth="Infinity" onAction="#sendAuth" text="Authorization"/>
+        </VBox>
+        <TextArea fx:id="mainTextArea" editable="false" VBox.vgrow="ALWAYS">
+            <padding>
+                <Insets bottom="5.0" top="5.0"/>
+            </padding>
+            <VBox.margin>
+                <Insets bottom="10.0" top="10.0"/>
+            </VBox.margin>
+        </TextArea>
+        <HBox fx:id="msgPanel">
+            <TextField fx:id="msgField" onAction="#sendMsg" promptText="Enter messeg" HBox.hgrow="ALWAYS"/>
+            <Button onAction="#sendMsg" text="Send"/>
+        </HBox>
+    </VBox>
+    <ListView fx:id="clientsView" prefWidth="150" onMouseClicked="#clickClientList"/>
+
+
+</HBox>
